@@ -5,7 +5,10 @@
 <div id="app">
   <p>
     {{ items[0].name }}
-    {{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}
+    {{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }} 小計：{{
+      totalPrice | numberWithDelimiter
+    }}円<br />
+    合計：{{ totalPriceWithTax | numberWithDelimiter }}円
   </p>
   <p>フィルタ処理例 {{ 1011111100 | numberWithDelimiter }}</p>
   <button v-bind:disabled="!canBuy" v-bind:title="loggedInButton">購入</button>
