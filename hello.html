@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>はじめてのVue.js</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="app">
+  <p>
+    {{ items[0].name }}
+    {{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}
+  </p>
+  <p>フィルタ処理例 {{ 1011111100 | numberWithDelimiter }}</p>
+  <button v-bind:disabled="!canBuy" v-bind:title="loggedInButton">購入</button>
+</div>
+
+<script src="app.js"></script>
