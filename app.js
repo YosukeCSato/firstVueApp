@@ -22,7 +22,6 @@ const vm = new Vue({
     // dataプロパティ
     items: items,
     loggedInButton: 'ログイン済みのため購入できます',
-    canBuy: false,
   },
   filters: {
     // この節で追加したフィルタの定義
@@ -44,12 +43,20 @@ const vm = new Vue({
       // 算出プロパティに依存した算出プロパティも定義できる
       return Math.floor(this.totalPrice * 1.1);
     },
-    isTotalPriceOverOneThousand: function() {
-      if (this.totalPrice >= 1000) {
-        return true;
-      } else {
-        return false;
-      }
+    canBuy: function() {
+      return this.totalPrice >= 1000; // 1000円以上から購入可能にする。
+    },
+    errorMessageClass: function() {
+      return {
+        error: !this.canBuy,
+      };
+    },
+    errorMessageStyle: function() {
+      // canBuyが偽のときに赤く表示する
+      return {
+        border: this.canBuy ? '' : '1px solid red',
+        color: this.canBuy ? '' : 'red',
+      };
     },
   },
 });

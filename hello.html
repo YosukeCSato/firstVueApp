@@ -3,16 +3,17 @@
 <script src="https://unpkg.com/vue@2.5.17"></script>
 
 <div id="app">
-  <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
-  <p>小計：{{ totalPrice | numberWithDelimiter }}円</p>
-  <p>合計：{{ totalPriceWithTax | numberWithDelimiter }}円</p>
-  <p>フィルタ処理例 {{ 1011111100 | numberWithDelimiter }}</p>
-  <p v-show="!canBuy">
-    {{ 1000 | numberWithDelimiter }}円以上からご購入いただけます
-  </p>
-  <button v-show="isTotalPriceOverOneThousand" v-bind:title="loggedInButton">
-    購入
-  </button>
+  <div :style="errorMessageStyle">
+    <p>{{ items[0].name }}: {{ items[0].price }}円 x {{ items[0].quantity }}</p>
+    <p>小計：{{ totalPrice | numberWithDelimiter }}円</p>
+    <p>合計：{{ totalPriceWithTax | numberWithDelimiter }}円</p>
+    <p v-show="!canBuy">
+      {{ 1000 | numberWithDelimiter }}円以上からご購入いただけます
+    </p>
+    <button v-show="canBuy" :title="loggedInButton">
+      購入
+    </button>
+  </div>
 </div>
 
 <script src="app.js"></script>
