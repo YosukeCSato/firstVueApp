@@ -1,0 +1,24 @@
+<!DOCTYPE html> <meta charset="UTF-8" />
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<div id="fruits-component">
+  <ol>
+    <fruits-item-name
+      v-for="fruit in fruitsItems"
+      :key="fruit.name"
+      :fruits-item="fruit"
+    ></fruits-item-name>
+
+    <!--
+      親のfruit-componentにマウントされたインスタンスのfruitItemsをキーfruitにいれて
+      それを子コンポーネントのfruits-itemに入れている
+      -->
+  </ol>
+</div>
+<div id="fruits-counter">
+  <div v-for="fruit in fruits" :key="fruit.name">
+    {{ fruit.name }}: <counter-button v-on:sd="incrementCartStatus()"></counter-button>
+    </div>
+    <p>合計: {{ total }}</p>
+  </div>
+</div>
+<script src="family.js"></script>

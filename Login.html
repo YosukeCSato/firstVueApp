@@ -1,0 +1,14 @@
+<!DOCTYPE html> <meta charset="UTF-8" />
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<script type="text/x-template" id="login-template">
+    <div id="login-template">
+      <input type="text" placeholder="ログインID" v-model="userid"><br>
+      <input type="password" placeholder="パスワード" v-model="password"><br>
+    <button @click="login">ログイン</button>
+  </div>
+</script>
+
+<div id="login-example">
+  <user-login></user-login>
+</div>
+<script src="Login.js"></script>

@@ -23,6 +23,7 @@ const vm = new Vue({
     items: items,
     loggedInButton: 'ログイン済みのため購入できます',
   },
+
   filters: {
     // この節で追加したフィルタの定義
     numberWithDelimiter: function(value) {
@@ -30,6 +31,15 @@ const vm = new Vue({
         return 0;
       }
       return value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    },
+  },
+  methods: {
+    doBuy: function() {
+      // 本来はここでサーバーと通信を行う
+      alert(this.totalPriceWithTax + '円のお買い上げ！');
+      this.items.forEach(function(item) {
+        item.quantity = 0;
+      });
     },
   },
   computed: {
