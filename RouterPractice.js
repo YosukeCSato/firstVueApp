@@ -85,8 +85,9 @@ const userData = [
   },
   {
     id: 2,
-    name: 'David Bowie',
-    description: '最高',
+    name: 'Bob Dylan',
+    description:
+      'ボブ・ディラン（英語: Bob Dylan、1941年5月24日 - ）は、ユダヤ系アメリカ人のミュージシャンである。出生名は、ロバート・アレン・ジマーマン（Robert Allen Zimmerman）だが[1][2][3]、後に自ら法律上の本名もボブ・ディランに改名している[4][5]。“ボブ”はロバートの愛称、“ディラン”は詩人ディラン・トマスにちなむ。70年代末には保守派のビル・グレアムの影響を強く受け、福音派（新興宗教的キリスト教）に改宗（ボーン・アゲイン）し、コンサートでブーイングを浴びたが、ソニー・ミュージックなどによれば、83年以降はユダヤ教に回帰している。2016年歌手として初めてノーベル文学賞を受賞。',
   },
 ];
 
@@ -196,10 +197,10 @@ const Auth = {
           .substring(7);
         if (callback) {
           callback(true);
-        } else {
-          if (callback) {
-            callback(false);
-          }
+        }
+      } else {
+        if (callback) {
+          callback(false);
         }
       }
     }, 0);
@@ -292,6 +293,9 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
+  data: {
+    Auth: Auth,
+  },
   router: router,
 }).$mount('#app');
 
