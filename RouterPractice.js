@@ -62,16 +62,7 @@ const UserCreate = {
 // この関数を用いて擬似的にWeb API経由で情報を取得したようにする
 const getUsers = function(callback) {
   setTimeout(function() {
-    callback(null, [
-      {
-        id: 1,
-        name: 'David Bowie',
-      },
-      {
-        id: 2,
-        name: 'Bob Dylan',
-      },
-    ]);
+    callback(null, userData);
   }, 1000);
 };
 
